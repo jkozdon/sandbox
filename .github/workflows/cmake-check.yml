@@ -1,0 +1,13 @@
+name: cmake-format
+on: push
+jobs:
+  cmake-check:
+    name: cmake-check
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Format CMake files
+      id: cmake-format
+      uses: PuneetMatharu/cmake-format-lint-action@v1.0.2
+      with:
+        args: --config-files .cmake-format.yaml --check
